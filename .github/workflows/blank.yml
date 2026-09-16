@@ -1,36 +1,76 @@
-#!/bin/bash
+# -*- coding: utf-8 -*-
 
-cat << 'EOF' > app.py
-import sys
-import logging
+class YoungDeveloper:
+    """
+    Привет! 👋 Меня зовут Давид.
+    Я молодой разработчик, увлеченный созданием крутых проектов.
+    """
+    
+    def __init__(self):
+        self.name = "Давид"
+        self.role = "Молодой разработчик"
+        self.current_focus = "Изучение новых технологий и написание чистого кода"
+        self.fun_fact = "Люблю решать алгоритмические задачи и пить кофе ☕"
+        
+    def get_stack(self) -> list:
+        # Замени на свои технологии
+        return ["Python", "Git", "SQL", "Docker"] 
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
-
-class Application:
-    def __init__(self, version="1.0.0"):
-        self.version = version
-        logging.info(f"Инициализация приложения (v{self.version})")
-
-    def start(self):
-        logging.info("Запуск основных процессов...")
-        try:
-            self._run_logic()
-        except Exception as e:
-            logging.error(f"Произошла ошибка: {e}")
-            sys.exit(1)
-
-    def _run_logic(self):
-        logging.info("Логика выполнена успешно.")
+    def say_hello(self) -> str:
+        return f"Привет! Я {self.name}, {self.role}. Рад видеть тебя в моем профиле!"
 
 if __name__ == "__main__":
-    app = Application()
-    app.start()
-EOF
+    me = YoungDeveloper()
+    print(me.say_hello())
+    print(f"Мой стек: {', '.join(me.get_stack())}")
+    import os
 
-cat << 'EOF' > README.md
-# Проект
+def generate_profile_readme():
+    # Формируем красивый Markdown-текст
+    readme_content = """# Привет! 👋 Меня зовут Давид
 
-## Установка
-```bash
-git clone <repo-url>
-cd project
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=25&pause=1000&color=3776AB&center=true&vCenter=true&width=435&lines=Молодой+Python+разработчик+%F0%9F%90%8D;Пишу+чистый+код+%F0%9F%92%BB;Постоянно+учусь+%F0%9F%93%9A" alt="Typing SVG" />
+</p>
+
+---
+
+## 🧑‍💻 Обо мне
+Я молодой и амбициозный разработчик. Люблю Python, автоматизацию и красивые архитектурные решения.
+
+- 🌱 **Сейчас изучаю:** FastAPI, Django, нейросети
+- 💬 **Спроси меня о:** Python, алгоритмах, базах данных
+- 📫 **Как со мной связаться:** [твой Telegram](https://t.me/твой_ник)
+- ⚡ **Интересный факт:** Дебажу код только после чашки эспрессо ☕
+
+---
+
+## 🛠 Мой стек технологий
+<p align="left">
+  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+  <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" />
+</p>
+
+---
+
+## 📊 Моя GitHub статистика
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=ТВОЙ_ЛОГИН&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=ff7b72" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=ТВОЙ_ЛОГИН&layout=compact&theme=radical&hide_border=true&bg_color=0d1117&title_color=58a6ff" />
+</p>
+"""
+    
+    # Заменяем плейсхолдер на твой реальный логин (раскомментируй и впиши)
+    # readme_content = readme_content.replace("ТВОЙ_ЛОГИН", "твой_реальный_ник")
+
+    # Создаем файл README.md в текущей папке
+    with open("README.md", "w", encoding="utf-8") as file:
+        file.write(readme_content)
+        
+    print("✅ Файл README.md успешно создан! Теперь загрузи его в свой профиль на GitHub.")
+
+if __name__ == "__main__":
+    generate_profile_readme()
+    
