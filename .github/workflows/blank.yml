@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cat << 'EOF' > app.py
+import sys
+import logging
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class Application:
+    def __init__(self, version="1.0.0"):
+        self.version = version
+        logging.info(f"Инициализация приложения (v{self.version})")
+
+    def start(self):
+        logging.info("Запуск основных процессов...")
+        try:
+            self._run_logic()
+        except Exception as e:
+            logging.error(f"Произошла ошибка: {e}")
+            sys.exit(1)
+
+    def _run_logic(self):
+        logging.info("Логика выполнена успешно.")
+
+if __name__ == "__main__":
+    app = Application()
+    app.start()
+EOF
+
+cat << 'EOF' > README.md
+# Проект
+
+## Установка
+```bash
+git clone <repo-url>
+cd project
